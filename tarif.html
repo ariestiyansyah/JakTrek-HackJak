@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>JakTrek</title>
+  <meta name="description" content="Información de rutas y servicios del Metropolitano, un sistema de transporte público en Lima, Perú.">
+  <!-- Building blocks -->
+  <!--link rel="stylesheet" href="style/action_menu.css"-->
+  <link rel="stylesheet" href="style/buttons.css">
+  <link rel="stylesheet" href="style/confirm.css">
+  <!--link rel="stylesheet" href="style/edit_mode.css"-->
+  <link rel="stylesheet" href="style/headers.css">
+  <!--link rel="stylesheet" href="style/input_areas.css"-->
+  <!--link rel="stylesheet" href="style/status.css"-->
+  <!--link rel="stylesheet" href="style/switches.css"-->
+  <!--link rel="stylesheet" href="style/drawer.css"-->
+  <link rel="stylesheet" href="style/lists.css">
+  <link rel="stylesheet" href="style/progress_activity.css">
+  <link rel="stylesheet" href="style/scrolling.css">
+  <!--link rel="stylesheet" href="style/seekbars.css"-->
+  <!--link rel="stylesheet" href="style/tabs.css"-->
+  <!--link rel="stylesheet" href="style/toolbars.css"-->
+
+  <!-- Icons -->
+  <!--link rel="stylesheet" href="icons/styles/action_icons.css"-->
+  <!--link rel="stylesheet" href="icons/styles/media_icons.css"-->
+  <link rel="stylesheet" href="icons/styles/comms_icons.css">
+  <!--link rel="stylesheet" href="icons/styles/settings_icons.css"-->
+
+  <!-- Transitions -->
+  <link rel="stylesheet" href="transitions.css">
+  
+  <!-- Util CSS: some extra tricks -->
+  <link rel="stylesheet" href="util.css">
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Additional markup to make Building Blocks kind of cross browser -->
+  <link rel="stylesheet" href="cross_browser.css">
+
+  <!-- Custom CSS (only for this app, inheriths Building Blocks) -->
+  <link rel="stylesheet" href="style/applicationStyle.css">
+  <link rel="stylesheet" href="style/mapbox.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+        <section role="region" id="index" data-position="current">
+    <header class="fixed">        <a id="btn-stations-back" href="app.html"><span class="icon icon-back">back</span></a>
+        <h1>Tarif</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-stations"><br>
+        <center><img alt="tarif" height="40%" width="65%" src="images/tarif.jpg"></center>  
+        <p>Tarif layanan Transjakarta ditetapkan oleh Pemerintah Propinsi DKI Jakarta melalui Peraturan Daerah dengan mempertimbangkan tarif teknis (pengeluaran dibagi dengan jumlah penumpang). Pemerintah memberikan subsidi operasional karena tarif teknis lebih besar dari tarif publik. Saatini, penumpang Transjakarta mendapatkan subsidi sekitar 40%.</p>
+        <p><b><u>Berlaku dua tarif :</u></b></p>
+        <p><i><ol>
+          <li>1. Tarif pagi berlaku dari 05:00 - 07:00, sebesar Rp. 2000,-</li><br>
+          <li>2. Tarif pagi berlaku dari 07:00 - 22:00, sebesar Rp. 3500,-</li><br></i>
+        </ol></p>
+        <p><b><u>Patokan waktu berlakunya tarif pagi dan reguler : </u></b></p>  
+        <p><i><ol>
+          <li>1. Penggunaan tiket kertas: jam yang ada di turnstile di setiap halte Transjakarta</li><br>
+          <li>2. Penggunaan tiket elektronik: menggunakan pengatur waktu otomatisd i turnstile </li><br>
+        </ol></i></p>
+        <p>TIDAK ADA tarif khusus baik bagi pelajar, anak-anak, orang tua, dll, tarif tidak berdasarkan jarak tempuh dan TIDAK perlu membayar lagi jika penumpang berpindah dari satu koridor ke koridor lainnya. 
+        </section>
+      </article>
+    </section>
+  </section>
+
+  <script type="text/javascript" src="js/mapbox.js"></script>
+  <script type="text/javascript" src="js/latlong.js"></script>
+  <script type="text/javascript" src="js/applicationData.js"></script>
+  <script type="text/javascript" src="js/applicationScript.js"></script>
+</body>
+</html>

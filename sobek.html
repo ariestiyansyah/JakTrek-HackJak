@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>JakTrek</title>
+  <meta name="description" content="Información de rutas y servicios del Metropolitano, un sistema de transporte público en Lima, Perú.">
+  <!-- Building blocks -->
+  <!--link rel="stylesheet" href="style/action_menu.css"-->
+  <link rel="stylesheet" href="style/buttons.css">
+  <link rel="stylesheet" href="style/confirm.css">
+  <!--link rel="stylesheet" href="style/edit_mode.css"-->
+  <link rel="stylesheet" href="style/headers.css">
+  <!--link rel="stylesheet" href="style/input_areas.css"-->
+  <!--link rel="stylesheet" href="style/status.css"-->
+  <!--link rel="stylesheet" href="style/switches.css"-->
+  <!--link rel="stylesheet" href="style/drawer.css"-->
+  <link rel="stylesheet" href="style/lists.css">
+  <link rel="stylesheet" href="style/progress_activity.css">
+  <link rel="stylesheet" href="style/scrolling.css">
+  <!--link rel="stylesheet" href="style/seekbars.css"-->
+  <!--link rel="stylesheet" href="style/tabs.css"-->
+  <!--link rel="stylesheet" href="style/toolbars.css"-->
+
+  <!-- Icons -->
+  <!--link rel="stylesheet" href="icons/styles/action_icons.css"-->
+  <!--link rel="stylesheet" href="icons/styles/media_icons.css"-->
+  <link rel="stylesheet" href="icons/styles/comms_icons.css">
+  <!--link rel="stylesheet" href="icons/styles/settings_icons.css"-->
+
+  <!-- Transitions -->
+  <link rel="stylesheet" href="transitions.css">
+  
+  <!-- Util CSS: some extra tricks -->
+  <link rel="stylesheet" href="util.css">
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Additional markup to make Building Blocks kind of cross browser -->
+  <link rel="stylesheet" href="cross_browser.css">
+
+  <!-- Custom CSS (only for this app, inheriths Building Blocks) -->
+  <link rel="stylesheet" href="style/applicationStyle.css">
+  <link rel="stylesheet" href="style/mapbox.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+        <section role="region" id="index" data-position="current">
+    <header class="fixed">        <a id="btn-stations-back" href="app.html"><span class="icon icon-back">back</span></a>
+        <h1>Tiket Sobek</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-stations"><br>
+        <center><img alt="Tiket Sobek" height="40%" width="65%" src="images/tsobek.jpg"></center>  
+        <p>Tiket sobek atau tiket kertas dijual diseluruh halte busway transjakarta, tiket ini hanya berlaku satu kali perjalanan saja</p>
+        <p><b><u>Tiket terdiri dari 3 bagian :</u></b></p>
+        <p><i><ol>
+          <li>1. Bagian yang menempel di bonggol tiket atau lembar per tinggal, untuk Transjakarta sebagai data tiket terjual</li><br>
+          <li>2. Potongan 1 (Segi untuk Petugas), sebagai alat control petugas barrier terhadap penumpang yang masuk kedalam halte (paid area)</li><br>
+          <li>3. Potongan 2, untuk penumpang, sebagai bukti pembelian tiket</li></i>
+        </ol></p>
+        <p><b><u>Cara Penggunaan : </u></b></p>  
+        <p><i><ol>
+          <li>1. Beli tiket di loket tiket</li><br>
+          <li>2. Upayakan membayar dengan uang pas. Bersabarlah jika perlu menunggu uang kembalian</li><br>
+          <li>3. Pastikan anda menerima 2 bagian tiket dari petugas tiket</li><br>
+          <li>4. Berikan tiket kepada petugas barrier. Pastikan petugas barrier menyobek tiket, dan anda mendapat 1 bagian tiket</li><br>
+          <li>5. Tidak membuang potongan tiket anda di sembarang tempat di haltemaupun di bus</li>
+        </ol></i></p>
+        </section>
+      </article>
+    </section>
+  </section>
+
+  <script type="text/javascript" src="js/mapbox.js"></script>
+  <script type="text/javascript" src="js/latlong.js"></script>
+  <script type="text/javascript" src="js/applicationData.js"></script>
+  <script type="text/javascript" src="js/applicationScript.js"></script>
+</body>
+</html>

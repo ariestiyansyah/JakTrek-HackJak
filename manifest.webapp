@@ -1,0 +1,23 @@
+
+{
+	"version": "0.1",
+	"name": "JakTrek",
+	"description": "Application for #HackJak ",
+	"launch_path": "/app.html",
+	"icons": {
+    "256": "/image/256.png",
+    "128": "/image/128.png",
+    "120": "/image/120.png",
+    "90": "/image/90.png",
+    "60": "/image/60.png",
+    "32": "/image/32.png"
+  },
+  "developer": {
+    "name": "Rizky Ariestiyansyah",
+     "url": "http://oonlab.com"
+  },
+  "orientation": ["portrait"],
+  "default_locale": "en",
+  "installs_allowed_from":["*"]
+
+}

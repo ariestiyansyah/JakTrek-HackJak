@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Google Maps Multiple Markers</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"
+type="text/javascript"></script>
+</head>
+<body>
+<div id="map" style="width: 1000px; height: 1000px;"></div>
+ 
+<script type="text/javascript">
+var infowindow = new google.maps.InfoWindow();
+var marker, i;
+var data_trans = "http://api.hackjak.bappedajakarta.go.id/busway/halte?apiKey=sHb9LYwHbVXEQZrzGvF0Wi7Jm1Bm5q6E";
+$.getJSON(data_trans, function(data){
+var map = new google.maps.Map(document.getElementById('map'), {
+zoom: 13,
+center: new google.maps.LatLng(data.result[0].lat, data.result[0].long),
+mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+for (var i in data.result) {
+marker = new google.maps.Marker({
+position: new google.maps.LatLng( data.result[i].lat, data.result[i].long ),
+map: map
+});
+google.maps.event.addListener(marker, 'click', (function(marker, i) {
+return function() {
+infowindow.setContent(data.result[i].halteName);
+infowindow.open(map, marker);
+}
+})(marker, i));
+}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>JakTrek</title>
+  <meta name="description" content="Información de rutas y servicios del Metropolitano, un sistema de transporte público en Lima, Perú.">
+  <!-- Building blocks -->
+  <!--link rel="stylesheet" href="style/action_menu.css"-->
+  <link rel="stylesheet" href="style/buttons.css">
+  <link rel="stylesheet" href="style/confirm.css">
+  <!--link rel="stylesheet" href="style/edit_mode.css"-->
+  <link rel="stylesheet" href="style/headers.css">
+  <!--link rel="stylesheet" href="style/input_areas.css"-->
+  <!--link rel="stylesheet" href="style/status.css"-->
+  <!--link rel="stylesheet" href="style/switches.css"-->
+  <!--link rel="stylesheet" href="style/drawer.css"-->
+  <link rel="stylesheet" href="style/lists.css">
+  <link rel="stylesheet" href="style/progress_activity.css">
+  <link rel="stylesheet" href="style/scrolling.css">
+  <!--link rel="stylesheet" href="style/seekbars.css"-->
+  <!--link rel="stylesheet" href="style/tabs.css"-->
+  <!--link rel="stylesheet" href="style/toolbars.css"-->
+
+  <!-- Icons -->
+  <!--link rel="stylesheet" href="icons/styles/action_icons.css"-->
+  <!--link rel="stylesheet" href="icons/styles/media_icons.css"-->
+  <link rel="stylesheet" href="icons/styles/comms_icons.css">
+  <!--link rel="stylesheet" href="icons/styles/settings_icons.css"-->
+
+  <!-- Transitions -->
+  <link rel="stylesheet" href="transitions.css">
+  
+  <!-- Util CSS: some extra tricks -->
+  <link rel="stylesheet" href="util.css">
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Additional markup to make Building Blocks kind of cross browser -->
+  <link rel="stylesheet" href="cross_browser.css">
+
+  <!-- Custom CSS (only for this app, inheriths Building Blocks) -->
+  <link rel="stylesheet" href="style/applicationStyle.css">
+  <link rel="stylesheet" href="style/mapbox.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+  <script language="javascript" type="text/javascript">
+   $(document).ready(function () {
+      $("#ontabs").tabs({ fx: {opacity: 'toggle'} });
+   });
+</script>
+  <section role="region" id="index" data-position="current">
+    <header class="fixed">
+      <h1>JakTrek</h1>
+    </header>
+    <article class="content scrollable header">
+      <div data-type="list">
+        <ul>
+          <li>
+            <a href="javascript:showliststations()">
+              <aside class='icon comms-icon contacts-sms'></aside>
+              <p>List Halte</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:showfavoritestations()">
+              <aside class='icon comms-icon contacts-favorite'></aside>
+              <p>Halte Favorit</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:showneareststations()">
+              <aside class='icon comms-icon contacts-location'></aside>
+              <p>Halte Terdekat</p>
+            </a>
+          </li>
+          <li>
+            <a href="suara.html">
+              <aside class='icon comms-icon calllog-outgoingsms'></aside>
+              <p>Teks Suara</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:showinformation()">
+              <aside class='icon comms-icon contacts-phone'></aside>
+              <p>Informasi</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:showabout()">
+              <aside class='icon comms-icon contacts-email'></aside>
+              <p>About</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </section> <!-- end index -->
+
+  <!--····························· Stations ·····························-->
+  <section id="stations" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-stations-back" href="app.html"><span class="icon icon-back">back</span></a>
+        <h1>List Halte</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-stations">
+        </section>
+      </article>
+    </section>
+  </section>
+
+  <!--·························· Remove all favorite stations ··························-->
+  <section id="remove-favorite-stations" data-position="back" class="fullscreen">
+    <form role="dialog" data-type="confirm">
+      <section>
+        <h1>Konfirmasi</h1><!-- this heading is optional -->
+        <p>Apakah Anda yakin menghapus history halte favorit?</p>
+      </section>
+      <menu>
+        <button formaction="javascript:cancelremoveallfavorites()">Batal</button>
+        <button class="danger" formaction="javascript:confirmremoveallfavorites()">Hapus Semua </button>
+      </menu>
+    </form>
+  </section>
+
+  <!--····························· Favorite Station ·····························-->
+  <section id="favorite-stations" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-favorite-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Halte Favorit </h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-favorite-stations">
+        </section>
+      </article>
+    </section>
+  </section>
+
+  <!--····························· Nearest Station ·····························-->
+  <section id="nearest-stations" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-nearest-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Halte terdekat</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-nearest-stations">
+        </section>
+      </article>
+    </section>
+  </section>
+
+  <!--····························· Station Details ·····························-->
+  <section id="station" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-station-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Detail Halte</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="station-details">
+        </section>
+      </article>
+    </section>
+  </section>
+  
+  <!--·························· Stations in route ··························-->
+  <section id="stationsindirection" data-position="back" class="fullscreen">
+    <form role="dialog" data-type="confirm">
+        <section data-type="list" id="list-of-stationsindirection">
+        </section>
+      <menu>
+        <button formaction="javascript:cancelstationsindirection()">Batal</button>
+      </menu>
+    </form>
+  </section>
+  
+  <!--·························· Station in map ··························-->
+  <section id="stationinmap" data-position="back" class="fullscreen">
+    <form role="dialog" data-type="confirm">
+        <section data-type="list" id="list-of-stationinmap">
+        </section>
+      <menu>
+        <button formaction="javascript:cancelstationinmap()">Batal</button>
+      </menu>
+    </form>
+  </section>
+
+  <!--····························· Tweets ·····························-->
+  <section id="tweets" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-tweets-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Tweet Busway</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="list-of-tweets">
+        </section>
+      </article>
+    </section>
+  </section>
+  
+  <!--····························· Service information ·····························-->
+  <section id="info" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-info-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Informasi Busway</h1>
+      </header>
+      <article class="content scrollable header">
+       <section data-type="list">
+  <header>Tiket</header>
+  <ul>
+    <li>
+      <aside class="pack-end">
+        <img alt="Tiket Sobek" src="images/tsobek.jpg">
+      </aside>
+      <a href="sobek.html">
+        <p>Tiket Sobek</p>
+        <p>Informasi tiket kertas</p>
+      </a>
+    </li>
+    <li>
+      <aside class="pack-end">
+        <img alt="placeholder" src="images/smartcard.jpg">
+      </aside>
+      <a href="smart.html">
+        <p>Smart Card</p>
+        <p>Info tiket elektronik</p>
+      </a>
+    </li>
+  </ul>
+  <header>Tarif</header>
+  <ul>
+    <li> 
+      <aside class="pack-end">
+        <img alt="tarif" src="images/tarif.jpg">
+      </aside>
+      <a href="tarif.html">
+        <p>Tarif Busway</p>
+        <p>murahnya angkutan jakarta</p>
+      </a>
+    </li>
+  </ul>
+  <header>Fasilitas</header>
+  <ul>
+    <li> 
+      <aside class="pack-end">
+        <img alt="fasilitas" src="images/fasilitas.jpg">
+      </aside>
+      <a href="fasilitas.html">
+        <p>Fasilitas Busway</p>
+        <p>fasilitas seru di busway</p>
+      </a>
+    </li>
+  </ul>
+</section>
+      </article>
+    </section>
+  </section>
+  
+  <!--····························· About information ·····························-->
+  <section id="about" data-position="right">
+     <section role="region">
+      <header class="fixed">
+        <a id="btn-about-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>Tentang Aplikasi</h1>
+      </header>
+      <article class="content scrollable header">
+        <section data-type="list" id="info-details">
+        </section>
+      </article>
+    </section>
+  </section>
+  <script type="text/javascript" src="js/mapbox.js"></script>
+  <script type="text/javascript" src="js/latlong.js"></script>
+  <script type="text/javascript" src="js/applicationData.js"></script>
+  <script type="text/javascript" src="js/applicationScript.js"></script>
+</body>
+</html>

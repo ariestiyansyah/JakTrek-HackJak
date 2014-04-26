@@ -1,0 +1,68 @@
+<html>
+<head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>JakTrek</title>
+  <meta name="description" content="Información de rutas y servicios del Metropolitano, un sistema de transporte público en Lima, Perú.">
+  <!-- Building blocks -->
+  <!--link rel="stylesheet" href="style/action_menu.css"-->
+  <link rel="stylesheet" href="style/buttons.css">
+  <link rel="stylesheet" href="style/confirm.css">
+  <!--link rel="stylesheet" href="style/edit_mode.css"-->
+  <link rel="stylesheet" href="style/headers.css">
+  <link rel="stylesheet" href="style/input_areas.css">
+  <!--link rel="stylesheet" href="style/status.css"-->
+  <!--link rel="stylesheet" href="style/switches.css"-->
+  <!--link rel="stylesheet" href="style/drawer.css"-->
+  <link rel="stylesheet" href="style/lists.css">
+  <link rel="stylesheet" href="style/progress_activity.css">
+  <link rel="stylesheet" href="style/scrolling.css">
+  <!--link rel="stylesheet" href="style/seekbars.css"-->
+  <!--link rel="stylesheet" href="style/tabs.css"-->
+  <!--link rel="stylesheet" href="style/toolbars.css"-->
+
+  <!-- Icons -->
+  <!--link rel="stylesheet" href="icons/styles/action_icons.css"-->
+  <!--link rel="stylesheet" href="icons/styles/media_icons.css"-->
+  <link rel="stylesheet" href="icons/styles/comms_icons.css">
+  <!--link rel="stylesheet" href="icons/styles/settings_icons.css"-->
+
+  <!-- Transitions -->
+  <link rel="stylesheet" href="transitions.css">
+  
+  <!-- Util CSS: some extra tricks -->
+  <link rel="stylesheet" href="util.css">
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Additional markup to make Building Blocks kind of cross browser -->
+  <link rel="stylesheet" href="cross_browser.css">
+
+  <!-- Custom CSS (only for this app, inheriths Building Blocks) -->
+  <link rel="stylesheet" href="style/applicationStyle.css">
+  <link rel="stylesheet" href="style/mapbox.css">
+  <script>
+    // This demo is licensed under the GNU GPL.
+  </script>
+  <script src="speakClient.js"></script>
+</head>
+<body>
+  <section role="region" id="index" data-position="current">
+    <header class="fixed">
+      <a id="btn-stations-back" href="app.html"><span class="icon icon-back">back</span></a>
+      <h1>Teks Suara</h1>
+    </header><br>
+   <article class="content scrollable header"> 
+  <form onsubmit="speak(text.value, { amplitude: amplitude.value, wordgap: workdgap.value, pitch: pitch.value, speed: speed.value }); return false">
+    <input type="text" name="text" size=50 placeholder="Masukan teks suara Anda" required><br>
+    Amplitude: <input type="text" name="amplitude" size=5 value="100"><br>
+    Pitch: <input type="text" name="pitch" size=5 value="50"><br>
+    Speed: <input type="text" name="speed" size=5 value="175"><br>
+    Word gap: <input type="text" name="workdgap" size=5 value="0"><br>
+    <button type="submit" class="recommend">Beep the Text!</button>
+  </form>
+  <hr>
+</article></section>
+  <div id="audio"></div>
+</body>
+</html>
+
