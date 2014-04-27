@@ -2,7 +2,7 @@
 	"version": "0.1",
 	"name": "JakTrek",
 	"description": "Application for #HackJak ",
-	"launch_path": "/index.html",
+	"launch_path": "/app.html",
 	"icons": {
     "256": "/image/256.png",
     "128": "/image/128.png",

@@ -114,7 +114,7 @@
     htmlstations += '</p>';
     document.querySelector('#list-of-stationsindirection').innerHTML = htmlstations;
     document.querySelector('#stationsindirection').className = 'fade-in';
-	}
+  }
 
   function showstationinmap(stationSelected,applicationData)
   {
@@ -124,12 +124,6 @@
       htmlstations += '<h1>';
       htmlstations += data.result[stationSelected].halteName;
       htmlstations += '</h1>';
-      htmlstations += '<h1>';
-      htmlstations += data.result[stationSelected].lat;
-      htmlstations += '</h1>';
-      htmlstations += '<h1>';
-      htmlstations += data.result[stationSelected].long;
-      htmlstations += '</h1>';
       if (!navigator.onLine)
       {
         htmlstations += '<p class="small">'+"Usted no está conectado a Internet."+"</p>";
@@ -138,7 +132,7 @@
       else
       {
         document.querySelector('#list-of-stationinmap').innerHTML = htmlstations;
-        Map.init(applicationData.categories[0].stations[stationSelected], '#list-of-stationinmap');
+        Map.init(data.result[stationSelected], '#list-of-stationinmap');
       }
       document.querySelector('#stationinmap').className = 'fade-in';
     });
@@ -161,7 +155,7 @@
     //   Map.init(applicationData.categories[0].stations[stationSelected], '#list-of-stationinmap');
     // }
     // document.querySelector('#stationinmap').className = 'fade-in';
-	}
+  }
   
   function showstation(stationselected)
   {
@@ -195,8 +189,8 @@
     if ("mozNotification" in navigator)
     { // FirefoxOS
       var notification = navigator.mozNotification.createNotification(
-        "Metropolitano de Lima",
-        "Estación favorita: "+applicationData.categories[0].stations[stationselected].name
+        "JakTrek",
+        "Halte Favorit: "+applicationData.categories[0].stations[stationselected].name
         );
       notification.onshow = function () { setTimeout(notification.close(), 1000); }
                     notification.show();
@@ -538,8 +532,8 @@
     },
 
     addMarker: function(place, map){
-      var lat = place.coordinatelat;
-      var lng = place.coordinatelng;
+      var lat = place.lat;
+      var lng = place.long;
       L.mapbox.markerLayer({
         type: 'Feature',
         geometry: {
